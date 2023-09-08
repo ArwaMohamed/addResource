@@ -1,0 +1,17 @@
+
+  <div class="row  d-flex justify-content-between w-100">
+    <div class="row col-lg-3 col-md-4 col-sm-6 col-3">
+      <div class="col-lg-12 d-flex align-items-center">
+        <button nbButton status="basic"><nb-icon  icon="arrow-back-outline"></nb-icon></button>
+        <p class="m-0 nowrap d-none d-sm-block">{{'add new resourse'| translate  | titlecase  }}</p>
+        <nb-toggle class="mx-1 d-block d-sm-none" [(ngModel)]="toggleNgModel"></nb-toggle>
+      </div>
+    </div>
+    <div class="row col-lg-9 col-md-6 col-sm-6 col-12">
+      <div class="toggle d-flex col-lg-12 d-flex align-items-center" >
+        <nb-toggle class="mx-1 d-none d-sm-block" [(ngModel)]="toggleNgModel"></nb-toggle>
+       <button nbButton shape="rectangle" class="btn-balck mx-1" (click)="save()">{{'save change' | titlecase}}</button>
+       <button nbButton outline status="danger" class="mx-1"><nb-icon icon="trash-2-outline"></nb-icon>{{'delete' | titlecase}}</button>
+      </div>
+    </div>
+  </div>

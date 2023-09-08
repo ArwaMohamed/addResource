@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'addResource';
+  language: any= 'en'
+  @Inject(DOCUMENT) private document!: Document
+  constructor(private translateService: TranslateService) {
+    localStorage.setItem('lang',this.language)
+  }
+
 }

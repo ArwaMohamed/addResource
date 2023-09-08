@@ -1,0 +1,11 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <app-header class="w-100"></app-header>
+  </nb-layout-header>
+  <nb-layout-column>
+    <button (click)="changeLangage('ar')" nbButton hero status="primary" class="mx-1">Arabic</button>
+    <button nbButton hero status="info" (click)="changeLangage('en')"  class="mx-1">English</button>
+    <app-resource-info></app-resource-info>
+    <app-scedule></app-scedule>
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-12">
+    <nb-card class="rounded-3">
+      <nb-card-body class="d-flex align-items-center">
+        <nb-user size="large" [picture]="user_photo" onlyPicture="" class="mx-2 position-relative res-image">
+        </nb-user>
+        <span class="pointer position-absolute translate-middle badge rounded-pill bg-primary">
+          <label for="image"><img src="assets/icons/gallery.svg" /></label>
+          <input #image (change)="getImage(image.files)" id="image" type="file" accept="image/*" hidden />
+        </span>
+        <div class="w-100">
+          <label for="exampleFormControlInput1" class="form-label">{{
+            resource_name_trans| titlecase
+            }}</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" [(ngModel)]="resource_name"/>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card class="rounded-3 mb-0">
+      <nb-card-body class="d-flex align-items-center overflow-hidden">
+        <div class="row">
+          <div class="col-lg-3 col-sm-12 d-flex align-items-center">
+            <span class="nowrap">{{ "choose resource type" | titlecase }}</span>
+          </div>
+          <div class="col-lg-9 col-sm-12">
+            <nb-radio-group class="d-flex mx-3 row" name="option" (valueChange)="getResourceType($event)">
+              <nb-radio class="col-lg-6 col-sm-6" *ngFor="let option of options" [value]="option.value"
+                [checked]="option.checked">
+                {{ option.label }}
+              </nb-radio>
+            </nb-radio-group>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <button nbButton (click)="save()" class="mb-3 mx-1" status="info" [disabled]="!resource_name ||!user_photo">store this data</button>
+  </div>
+  <div class="col-lg-6 col-sm-12 col-12">
+    <nb-card class="rounded-3">
+      <nb-card-body class="overflow-visible ">
+        <label for="exampleFormControlInput2" class="form-label d-block">{{
+          "resource available on" | titlecase
+          }}</label>
+        <div class="d-flex align-items-center" [dir]="lang =='ar'?'rtl':'ltr'">
+          <div class="input-group mb-3">
+            <input type="number" id="exampleFormControlInput2" class="rounded-start form-control" placeholder="0" [(ngModel)]="day">
+              <nb-select class="rounded-end month" placeholder="month" (selectedChange)="getDate($event)">
+                <nb-option *ngFor="let month of months" [value]="month.value">{{month.name}}</nb-option>
+              </nb-select>
+          </div>
+        </div>
+        <div>
+          <label for="exampleFormControlInput2" class="form-label d-block text-muted">{{
+            "resource time" | titlecase
+            }}</label>
+          <div class="row">
+            <nb-radio-group name="time" class="d-flex row col-md-6 col-12" (valueChange)="getTimingValue($event)">
+              <nb-radio class="col-lg-6 col-sm-6" *ngFor="let time of timing" [value]="time.value"
+                [checked]="time.checked">
+                <span class="mx-2">
+                  <img [src]="'assets/icons/'+time.value+'.svg'">
+                </span>
+                {{ time.label }}
+              </nb-radio>
+            </nb-radio-group>
+            <div class="col-md-6 col-12 d-flex align-items-center " *ngIf="timing_value == 'fixed'">
+              <span class="counter-icon"><button (click)="counterTime('minus')" nbButton status="primary"><nb-icon
+                    icon="minus-outline"></nb-icon></button></span>
+              <input type="text" id="exampleFormControlInput2" class="counter form-control" placeholder="0" readonly [(ngModel)]="resource_time">
+              <span class="counter-icon-2">
+                <button (click)="counterTime('plus')"  nbButton status="primary"><nb-icon icon="plus"></nb-icon></button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="exampleFormControlInput2" class="form-label d-block text-muted">{{
+            "multiple booking" | titlecase
+            }}</label>
+            <div class="row">
+          <nb-radio-group name="book" class="d-flex col-md-6 col-12 row" (valueChange)="getBookValue($event)">
+            <nb-radio class="col-lg-6 col-sm-6" *ngFor="let book of persons" [value]="book.value"
+              [checked]="book.checked">
+              <span class="mx-2">
+                <img [src]="'assets/icons/'+book.value+'.svg'">
+              </span>
+              {{ book.label }}
+            </nb-radio>
+          </nb-radio-group>
+          <div class="col-md-6 col-12 d-flex align-items-center " *ngIf="booking_value == 'group'">
+            <span class="counter-icon"><button (click)="counterbooking('minus')" nbButton status="primary"><nb-icon
+                  icon="minus-outline"></nb-icon></button></span>
+            <input type="text" id="exampleFormControlInput2" class="counter form-control" placeholder="0" readonly [(ngModel)]="booking_value_count">
+            <span class="counter-icon-2">
+              <button (click)="counterbooking('plus')" nbButton status="primary"><nb-icon icon="plus"></nb-icon></button>
+            </span>
+          </div>
+        </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

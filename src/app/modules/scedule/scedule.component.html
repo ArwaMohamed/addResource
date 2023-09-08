@@ -1,0 +1,56 @@
+<nb-card class="rounded-3 ">
+  <nb-card-header>
+    <div class="d-flex justify-content-between">
+      <div>
+        <p>{{'Set working hours for the resource' |titlecase}}</p>
+        <span class="text-muted">{{"Configure your week settings here. Simply move the sliders and add/remove break times to set up work hours." |titlecase}}</span>
+      </div>
+      <!-- <nb-tabset>
+    <nb-tab tabTitle="Users">
+      <p>List of <strong>users</strong>.</p>
+    </nb-tab>
+    <nb-tab tabTitle="Orders">
+      <p>List of <strong>orders</strong>.</p>
+    </nb-tab>
+    <nb-tab tabTitle="Transactions" disabled>
+      <p>List of <strong>transactions</strong>.</p>
+    </nb-tab>
+  </nb-tabset> -->
+      <div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div>
+      <div class="schedule-container">
+        <div *ngFor="let day of days" class="row schedule-row d-flex align-items-center my-5">
+         <div class="m-0 p-0 col-6 col-lg-1 col-sm-6 d-flex my-3">
+          <nb-toggle  (click)="toggleDay(day)"></nb-toggle>
+          <p class="mx-2 d-flex align-items-center">{{ day?.name }}</p>
+         </div>
+          <div *ngIf="day.active" class="gx-5 row col-lg-10 col-12  time-inputs ">
+            <div class="time-row col-12 my-3 d-flex  gx-3" *ngFor="let time of day?.times; let i = index">
+              <div class="d-flex timepicker col-lg-3 mx-2 col-3">
+                <label class="">start date</label>
+                <input class="" nbInput type="text" [nbTimepicker]="timepicker1" [(ngModel)]="time.startTime" />
+                <nb-timepicker #timepicker1></nb-timepicker>
+              </div>
+              <div class="d-flex timepicker col-lg-3 mx-2 col-3">
+                <label>End date</label>
+                <input class="" nbInput type="text" [nbTimepicker]="timepicker2" [(ngModel)]="time.endTime" />
+                <nb-timepicker #timepicker2></nb-timepicker>
+              </div>
+              <div class="col-lg-2 d-flex align-items-end ">
+                <button nbButton *ngIf="i>0" (click)="removeTime(day, i)" class=""> <nb-icon
+                    icon="minus-outline"></nb-icon></button>
+                <button nbButton *ngIf="i==0" (click)="addTime(day,i)" class="add-button "><nb-icon
+                    icon="plus"></nb-icon></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </nb-card-body>
+</nb-card>

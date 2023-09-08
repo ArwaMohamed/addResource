@@ -1,0 +1,8 @@
+.toggle{
+  justify-content: flex-end;
+}
+@media screen and (max-width:569px) {
+  .toggle{
+    justify-content: flex-start;
+  }
+}

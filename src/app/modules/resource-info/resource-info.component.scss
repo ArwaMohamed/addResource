@@ -1,0 +1,81 @@
+.form-label{
+  font-size: 10px;
+}
+.badge{
+  transform: translate(24%, -168%) !important;
+  display: flex;
+  align-items: center;
+}
+::ng-deep .user-picture.image{
+  width: 89px !important;
+  height: 100.405px !important;
+  flex-shrink: 0 !important;
+}
+::ng-deep .nb-theme-default nb-radio span.text{
+  font-size: 11px !important;
+  font-weight: 100 !important;
+  margin-left: 1% !important;
+  white-space: nowrap !important;
+}
+
+span{
+  font-size: 12px !important;
+}
+.form-control::-webkit-outer-spin-button,
+.form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.rounded-start{
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+ul{
+  height: 200px;
+  overflow-y: scroll;
+  li{
+    padding: 1%;
+    text-align: center;
+    cursor: pointer;
+    &:hover{
+      background-color: #bbbfc2;
+    }
+  }
+}
+.counter{
+  text-align: center;
+}
+.plus{
+  position: absolute;
+  right: 48px;
+  top: 51%;
+}
+.plus-2{
+  position: absolute;
+  right: 48px;
+  top: 78%;
+}
+@media screen and (max-width:767px) {
+  .plus{
+    right: 24px;
+    top: 58%;
+  }
+}
+@media screen and (max-width:576px) {
+  .plus{
+    right: 24px;
+    top: 56%;
+  }
+}
+
+
+
+.month{
+  transform: translate(-6%, 0%) !important;
+  background: #E7E7E8;
+  width: 25%;
+}
+::ng-deep button.select-button.placeholder ,::ng-deep  button.select-button{
+  min-width: 100% !important;
+}
