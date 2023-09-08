@@ -30,7 +30,6 @@ save(){
    let formattedData = `Name: ${data?.name}\n`;
    formattedData += `Available: ${data?.availavle}\n`;
    formattedData += `Booking Counter: ${data?.booking_counter}\n`;
-   // formattedData += `Picture: ${data?.picture}\n`;
    formattedData += 'Schedule:\n';
    for (const day of data?.schedule) {
     const start = day.startTime;

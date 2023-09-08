@@ -50,17 +50,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ToastrModule.forRoot(),
     NbToastrModule.forRoot(),
-    // NgxSpinnerModule,
-
-    // NbEvaIconsModule,
-    // NbIconModule,
-    // NbButtonModule,
-    // NbToggleModule,
     SharedModule,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

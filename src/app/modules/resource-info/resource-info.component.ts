@@ -115,7 +115,6 @@ resource_name_trans = "resource name"
     const currentYear = new Date().getFullYear();
     const mydate = new Date(currentYear, this.selectedItem, this.day);
     this.full_date = formatDate(mydate, 'yyyy-MM-dd', 'en');
-    console.log(this.full_date);
 
   }
 
