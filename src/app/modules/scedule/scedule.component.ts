@@ -68,7 +68,7 @@ export class SceduleComponent
   ngAfterContentChecked() {
     if (this.timepicker1) {
       this.timepicker1.hoursText = 'ساعة';
-      this.timepicker1.minutesText = 'دقائق';
+      this.timepicker1.minutesText = 'دقائق' ;
     }
     if (this.timepicker2) {
       this.timepicker2.hoursText = 'ساعة';
